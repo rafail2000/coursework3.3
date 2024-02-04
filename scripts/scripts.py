@@ -43,21 +43,29 @@ def discription_transfert(description):
     return transfert_data
 
 
-def departure_account(account):
+def account_of_sender(account):
     '''Данные отправителя'''
     encrypted_account = []
     for data in account:
-        if data.get("from") != None:
+        if data.get("from") is not None:
             account_list = data.get("from")
             encrypted_account.append(account_list[:-10] + '*' * 6 + account_list[-4:])
     return encrypted_account
 
 
+def account_of_recipent(account):
+    '''Данные получателя'''
+    encrypted_account = []
+    for data in account:
+        if data.get("to") is not None:
+            account_list = data.get("to")
+            if "Счет" in account_list:
+                encrypted_account.append(account_list[:-20] + '*' * 2 + account_list[-4:])
+            else:
+                encrypted_account.append(account_list[:-16] + '*' * 2 + account_list[-4:])
+
+    return encrypted_account
 
 
 
-
-def get_from(items):
-    '''Шифрование счёта отправителя'''
-    pass
 

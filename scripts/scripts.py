@@ -76,7 +76,14 @@ def transfer_ammount(account):
             transfer.append(account_list)
     return transfer
 
-
+def currency(account):
+    '''Валюта перевода'''
+    transfer = []
+    for data in account:
+        if data.get("state") == "EXECUTED":
+            account_list = data["operationAmount"]["currency"]["name"]
+            transfer.append(account_list)
+    return transfer
 
 
 

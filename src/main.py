@@ -3,9 +3,10 @@ from scripts.scripts import load_data, five_items, correct_date
 
 def main():
     data = load_data()
-    five_operation = five_items(data)
-    for item in five_operation:
-        print(correct_date(five_operation(item)))
+    items = five_items(data)
+    for item in items:
+        print(correct_date(item))
+
 
 
 

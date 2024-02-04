@@ -24,6 +24,10 @@ def five_items(sort_items):
     return last_five
 
 
+def correct_date(iso_date: str) -> str:
+    dt = datetime.fromisoformat(iso_date)
+    return dt.strftime('%d.%m.%Y')
+
 # def correct_date(value):
 #     '''Выыод даты в требуемом формате'''
 #     date_list = []
@@ -33,58 +37,58 @@ def five_items(sort_items):
 #         date_list.append(date_format)
 #     return date_list
 # pprint(correct_date(load_data()))
-#
-#
-# def discription_transfert(description):
-#     '''Описание перевода'''
-#     transfert_data = []
-#     for data in description:
-#         resault = data["description"]
-#         transfert_data.append(resault)
-#     return transfert_data
-#
-#
-# def account_of_sender(account):
-#     '''Данные отправителя'''
-#     encrypted_account = []
-#     for data in account:
-#         if data.get("from") is not None:
-#             account_list = data.get("from")
-#             encrypted_account.append(account_list[:-10] + '*' * 6 + account_list[-4:])
-#     return encrypted_account
-#
-#
-# def account_of_recipent(account):
-#     '''Данные получателя'''
-#     encrypted_account = []
-#     for data in account:
-#         if data.get("to") is not None:
-#             account_list = data.get("to")
-#             if "Счет" in account_list:
-#                 encrypted_account.append(account_list[:-20] + '*' * 2 + account_list[-4:])
-#             else:
-#                 encrypted_account.append(account_list[:-16] + '*' * 2 + account_list[-4:])
-#
-#     return encrypted_account
-#
-#
-# def transfer_ammount(account):
-#     '''Сумма перевода'''
-#     transfer = []
-#     for data in account:
-#         if data.get("state") == "EXECUTED":
-#             account_list = data["operationAmount"]["amount"]
-#             transfer.append(account_list)
-#     return transfer
-#
-# def currency(account):
-#     '''Валюта перевода'''
-#     transfer = []
-#     for data in account:
-#         if data.get("state") == "EXECUTED":
-#             account_list = data["operationAmount"]["currency"]["name"]
-#             transfer.append(account_list)
-#     return transfer
+
+
+def discription_transfert(description):
+    '''Описание перевода'''
+    transfert_data = []
+    for data in description:
+        resault = data["description"]
+        transfert_data.append(resault)
+    return transfert_data
+
+
+def account_of_sender(account):
+    '''Данные отправителя'''
+    encrypted_account = []
+    for data in account:
+        if data.get("from") is not None:
+            account_list = data.get("from")
+            encrypted_account.append(account_list[:-10] + '*' * 6 + account_list[-4:])
+    return encrypted_account
+
+
+def account_of_recipent(account):
+    '''Данные получателя'''
+    encrypted_account = []
+    for data in account:
+        if data.get("to") is not None:
+            account_list = data.get("to")
+            if "Счет" in account_list:
+                encrypted_account.append(account_list[:-20] + '*' * 2 + account_list[-4:])
+            else:
+                encrypted_account.append(account_list[:-16] + '*' * 2 + account_list[-4:])
+
+    return encrypted_account
+
+
+def transfer_ammount(account):
+    '''Сумма перевода'''
+    transfer = []
+    for data in account:
+        if data.get("state") == "EXECUTED":
+            account_list = data["operationAmount"]["amount"]
+            transfer.append(account_list)
+    return transfer
+
+def currency(account):
+    '''Валюта перевода'''
+    transfer = []
+    for data in account:
+        if data.get("state") == "EXECUTED":
+            account_list = data["operationAmount"]["currency"]["name"]
+            transfer.append(account_list)
+    return transfer
 
 
 

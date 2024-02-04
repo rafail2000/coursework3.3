@@ -1,16 +1,11 @@
-from scripts.scripts import sort_transactions, five_items, time_correct, get_from
-from utils.read_json_file import load_data
+from scripts.scripts import load_data, five_items, correct_date
 
 
 def main():
     data = load_data()
-    ex_items = get_transactions(data)
-    sort_items = sort_transactions(ex_items)
-    items = five_items(sort_items)
-    for item in items:
-        print(time_correct(item["date"]), item["discription"])
-        print(get_from(item), get_to(item))
-        print(get_money(item))
+    five_operation = five_items(data)
+    for item in five_operation:
+        print(correct_date(five_operation(item)))
 
 
 

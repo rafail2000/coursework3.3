@@ -24,7 +24,7 @@ def five_items(sort_items):
     return last_five
 
 
-def correct_data(value):
+def correct_date(value):
     '''Выыод даты в требуемом формате'''
     date_list = []
     for data in value:
@@ -32,6 +32,7 @@ def correct_data(value):
         date_format = f'{date:%d.%m.%Y}'
         date_list.append(date_format)
     return date_list
+
 
 
 def discription_transfert(description):

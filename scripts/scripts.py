@@ -47,17 +47,14 @@ def departure_account(account):
     '''Данные отправителя'''
     encrypted_account = []
     for data in account:
-        account_list = data.get("from")
-        if data == "NoneType":
-            continue
-        else:
+        if data.get("from") != None:
+            account_list = data.get("from")
             encrypted_account.append(account_list[:-10] + '*' * 6 + account_list[-4:])
-
     return encrypted_account
-pprint(departure_account(load_data()))
 
-def card_hide(card):
-    return '*' * len(card[:-4]) + card[-4:]
+
+
+
 
 
 def get_from(items):

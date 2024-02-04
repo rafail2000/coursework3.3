@@ -67,5 +67,18 @@ def account_of_recipent(account):
     return encrypted_account
 
 
+def transfer_ammount(account):
+    '''Сумма перевода'''
+    transfer = []
+    for data in account:
+        if data.get("state") == "EXECUTED":
+            account_list = data["operationAmount"]["amount"]
+            transfer.append(account_list)
+    return transfer
+
+
+
+
+
 
 

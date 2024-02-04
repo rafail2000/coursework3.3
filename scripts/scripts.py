@@ -39,13 +39,19 @@ def correct_date(iso_date: str) -> str:
 # pprint(correct_date(load_data()))
 
 
+# def discription_transfert(description):
+#     '''Описание перевода'''
+#     transfert_data = []
+#     for data in description:
+#         resault = data["description"]
+#         transfert_data.append(resault)
+#     return transfert_data
+
 def discription_transfert(description):
     '''Описание перевода'''
-    transfert_data = []
     for data in description:
         resault = data["description"]
-        transfert_data.append(resault)
-    return transfert_data
+    return resault
 
 
 def account_of_sender(account):

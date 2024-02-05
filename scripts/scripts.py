@@ -49,10 +49,12 @@ def correct_date(iso_date: str) -> str:
 
 def discription_transfert(description):
     '''Описание перевода'''
+    print(description)
+    print(type(description))
+    print()
     for data in description:
         resault = data["description"]
-    return resault
-
+    return print(resault)
 
 def account_of_sender(account):
     '''Данные отправителя'''

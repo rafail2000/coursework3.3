@@ -6,8 +6,7 @@ def main():
     five_operation = five_items(data)
     print(discription_transfert(five_operation))
     for item in five_operation:
-        print(f'{correct_date(item["date"])} {discription_transfert(item["description"])}')
-
+        print(f'{correct_date(item["date"])} {discription_transfert(item["discription"])}')
 
 
 

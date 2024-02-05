@@ -42,7 +42,9 @@ def correct_date(iso_date: str) -> str:
 def account_of_sender(account):
     '''Данные отправителя'''
     encrypted_account = []
-    for data in account:
+    accountt = []
+    accountt.append(account)
+    for data in accountt:
         if data.get("from") is not None:
             account_list = data.get("from")
             encrypted_account.append(account_list[:-10] + '*' * 6 + account_list[-4:])

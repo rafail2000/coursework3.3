@@ -12,4 +12,18 @@ def test_correct_date():
     assert correct_date("2018-06-30T02:08:58.425572") == "30.06.2018"
 
 def test_account_of_sender():
-    assert account_of_sender("Счет 75106830613657916952") == "Счет **6952"
+    assert account_of_sender({
+    "id": 441945886,
+    "state": "EXECUTED",
+    "date": "2019-08-26T10:50:58.294041",
+    "operationAmount": {
+      "amount": "31957.58",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Перевод организации",
+    "from": "Maestro 1596837868705199",
+    "to": "Счет 64686473678894779589"
+  }) == "Maestro 159683******5199"

@@ -41,20 +41,20 @@ def correct_date(iso_date: str) -> str:
 
 def account_of_sender(account):
     '''Данные отправителя'''
-    encrypted_account = []
     accountt = []
     accountt.append(account)
     for data in accountt:
+        encrypted_account = []
         if data.get("from") is not None:
             account_list = data.get("from")
             encrypted_account.append(account_list[:-10] + '*' * 6 + account_list[-4:])
-    return encrypted_account
+    return ''.join(encrypted_account)
 
 
 def account_of_recipent(account):
     '''Данные получателя'''
-    encrypted_account = []
     for data in account:
+        encrypted_account = []
         if data.get("to") is not None:
             account_list = data.get("to")
             if "Счет" in account_list:
@@ -62,26 +62,30 @@ def account_of_recipent(account):
             else:
                 encrypted_account.append(account_list[:-16] + '*' * 2 + account_list[-4:])
 
-    return encrypted_account
+    return ''.join(encrypted_account)
 
 
 def transfer_ammount(account):
     '''Сумма перевода'''
-    transfer = []
-    for data in account:
+    transferr = []
+    transferr.append(account)
+    for data in transferr:
+        transfer = []
         if data.get("state") == "EXECUTED":
             account_list = data["operationAmount"]["amount"]
             transfer.append(account_list)
-    return transfer
+    return ''.join(transfer)
 
 def currency(account):
     '''Валюта перевода'''
-    transfer = []
-    for data in account:
+    transferr = []
+    transferr.append(account)
+    for data in transferr:
+        transfer = []
         if data.get("state") == "EXECUTED":
             account_list = data["operationAmount"]["currency"]["name"]
             transfer.append(account_list)
-    return transfer
+    return ''.join(transfer)
 
 
 

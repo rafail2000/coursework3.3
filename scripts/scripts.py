@@ -63,29 +63,29 @@ def account_of_recipent(account):
                 encrypted_account.append(account_list[:-16] + '*' * 2 + account_list[-4:])
 
     return ''.join(encrypted_account)
-#
-#
-# def transfer_ammount(account):
-#     '''Сумма перевода'''
-#     transferr = []
-#     transferr.append(account)
-#     for data in transferr:
-#         transfer = []
-#         if data.get("state") == "EXECUTED":
-#             account_list = data["operationAmount"]["amount"]
-#             transfer.append(account_list)
-#     return ''.join(transfer)
-#
-# def currency(account):
-#     '''Валюта перевода'''
-#     transferr = []
-#     transferr.append(account)
-#     for data in transferr:
-#         transfer = []
-#         if data.get("state") == "EXECUTED":
-#             account_list = data["operationAmount"]["currency"]["name"]
-#             transfer.append(account_list)
-#     return ''.join(transfer)
+
+
+def transfer_ammount(account):
+    '''Сумма перевода'''
+    transferr = []
+    transferr.append(account)
+    for data in transferr:
+        transfer = []
+        if data.get("state") == "EXECUTED":
+            account_list = data["operationAmount"]["amount"]
+            transfer.append(account_list)
+    return ''.join(transfer)
+
+def currency(account):
+    '''Валюта перевода'''
+    transferr = []
+    transferr.append(account)
+    for data in transferr:
+        transfer = []
+        if data.get("state") == "EXECUTED":
+            account_list = data["operationAmount"]["currency"]["name"]
+            transfer.append(account_list)
+    return ''.join(transfer)
 
 
 
